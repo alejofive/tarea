@@ -1,0 +1,122 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+}
+
+button{
+  cursor: pointer;
+}
+
+body{
+  background: rgb(250, 250, 250);
+  height: 100vh;
+}
+
+header{
+
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.carrito{
+  background:#f8f9fa;
+  padding: 20px 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.carrito p{
+  margin-left: 10px;
+  height: 35px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  background: #17a2b8;
+  border-radius: 10px;
+
+}
+
+section{
+  width: 375px;
+  margin: auto;
+  padding: 40px 20px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.botones {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.botones button{
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  color: white;
+  border: none;
+}
+
+.producto{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.producto button{
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  border: none;
+}
+
+.verde button{
+  background: #28a745;
+}
+.verde :hover{
+  background: #1c7431;
+}
+
+.gris button{
+  background: #545b62;
+  color: white;
+}
+.gris :hover{
+  background: #3a3f44;
+}
+
+.azul button{
+  background: #17a2b8;
+  color: white;
+}
+.azul :hover{
+  background: #128192;
+}
+
+.rojo button{
+  background: #dc3545;
+  color: white;
+}
+
+.rojo :hover{
+  background: #a52835;
+} 
+
+.caja-zero{
+  display: flex;
+}
+
+.caja-zero h1{
+  background: yellow;
+  padding: 2px 10px;
+  border-radius: 5px;
+}
+
