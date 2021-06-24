@@ -6,25 +6,65 @@ import './App.css';
 function App() {
 
   const [productos, setProductos] = useState([
-    { id: 0 },
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
+    { id: 0, numero: 0 },
+    { id: 1, numero: 0 },
+    { id: 2, numero: 0 },
+    { id: 3, numero: 0 },
   ])
 
-  const [numero, setNumero] = useState(0)
+
   const [carrito, setCarrito] = useState(0)
 
-  const suma = () => {
+  const sumar = (id) => {
+
+    setProductos([
+      ...productos.map((producto) => {
+
+        if (id == producto.id) {
+          if (producto.numero == 0) {
+            setCarrito(carrito + 1)
+          }
+          return {
+            ...producto,
+            numero: producto.numero + 1
+          }
+
+        } else {
+          return producto
+        };
+
+      })
+    ])
 
   }
 
-  const restar = () => {
+  const restar = (id) => {
+    setProductos([
+      ...productos.map((producto) => {
+        if (id == producto.id) {
+          if (producto.numero == 1) {
+            setCarrito(carrito - 1)
+          }
 
+          if (producto.numero == 0) {
+            return {
+              ...producto,
+              numero: producto.numero = 0,
+            }
+          }
+          return {
+            ...producto,
+            numero: producto.numero - 1
+          }
+        } else {
+          return producto
+        }
+      })
+    ])
   }
 
-  const eliminar = () => {
-
+  const eliminar = (id) => {
+    setProductos([...productos.filter((producto) => producto.id != id)])
   }
 
   const actualizar = () => {
@@ -60,23 +100,33 @@ function App() {
           productos.map((producto) => {
             return (
               <div className='producto'>
-                <div className='caja-zero'>
-                  <h1>Zero</h1>
+                <div className='caja-zero caja-zero2'>
+                  <h1>{producto.numero}</h1>
                 </div>
-                <div className='gris'>
-                  <button className='fa fa-plus-circle'></button>
-                </div>
-                <div className='azul'>
-                  <button className='fa fa-minus-circle'></button>
-                </div>
-                <div className='rojo'>
-                  <button className='fa fa-trash-o'></button>
+                <div className='caja-botones'>
+                  <div className='gris'>
+                    <button
+                      className='fa fa-plus-circle'
+                      onClick={() => sumar(producto.id)}
+                    ></button>
+                  </div>
+                  <div className='azul'>
+                    <button
+                      className='fa fa-minus-circle'
+                      onClick={() => restar(producto.id)}
+                    ></button>
+                  </div>
+                  <div className='rojo'>
+                    <button className='fa fa-trash-o'
+                      onClick={() => eliminar(producto.id)}
+                    ></button>
+                  </div>
                 </div>
               </div>
+
             )
           })
         }
-
       </section>
     </div>
   );
